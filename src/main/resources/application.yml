@@ -1,0 +1,56 @@
+spring:
+  port: 80
+
+  application:
+    name: TravelCompassBack-end
+
+  servlet:
+    context-path: /
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/travel_compass_db?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8
+      username: root
+      password: qwer1234
+      pool-name: Hikari Connection Pool
+      maximum-pool-size: 50
+      minimum-idle: 50
+      connection-timeout: 5000
+      connection-init-sql: SELECT 1
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      auto-commit: true
+
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 500
+      show-sql: true
+    open-in-view: false
+
+jwt:
+  salt: ssafy-screte-key-20240404-ssafy-screte-key-20240404-ssafy-screte-key-20240404
+  access-token:
+    expiretime: 3600000
+  refresh-token:
+    expiretime: 2592000000
+
+logging:
+  level:
+    root: info
+    com:
+      ssafy:
+        vue: debug
+  hibernate:
+    SQL: debug
+
+image:
+  upload:
+    dir: C:/Users/tksl4/git/TravelCompassBack-end/src/main/resources/static/images
+
+
+
